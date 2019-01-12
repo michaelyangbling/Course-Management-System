@@ -1,0 +1,15 @@
+button {
+  background-color: blue;
+  color: white;
+  font-size: 22px;
+}
+
+
+.middle {
+  width: 98%;
+  padding: 1%;
+}
+
+.color {
+	color: blue;
+}
