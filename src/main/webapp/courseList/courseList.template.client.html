@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body style="padding-top: 60px">
 <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-info"> <!--use navbar-expand to make following collapse mobile-only -->
   <a class="navbar-brand" href="#">
    Course Manager</a>
@@ -40,7 +40,7 @@
          <a class="nav-link" href="../profile/profile.template.client.html">Profile</a>
        </li>
        <li class="nav-item active" >
-         <input placeholder="New Course Title" class="form-control">
+         <input placeholder="New Course Title" class="form-control" id="createNewCourse">
        </li>
        <li class="nav-item active" >
          <span class="fa-stack btn red" onclick="location.href='#'"> <!-- onclick workds-->
@@ -54,22 +54,31 @@
 </nav>
 
 <table class="table">
-   <thead>
+   <thead class="bg-primary text-light">
        <tr>
            <th>Title</th>
            <th>Owner</th>
            <th>Last modified Time</th>
-           <th>&nbsp;</th>
+           <th>&nbsp</th>
        </tr>
 
    </thead>
 
-  <tbody>
-       <tr>
+  <tbody class="bg-secondary text-light">
+       <tr 
+       onclick="location.href='../courseEditor/courseEditor.template.client.html'" style="cursor:pointer">
            <td>Title Exmaple: cs 5610 </td>
            <td>Owner Example: me</td>
            <td>Last modified Time Example: 6:45 PM</td>
            <td>Example: Delete</td>
+       </tr>
+
+       <tr 
+       onclick="location.href='../courseEditor/courseEditor.template.client.html'" style="cursor:pointer">
+           <td>Title Exmaple2: cs 5610 </td>
+           <td>Owner Example2: me</td>
+           <td>Last modified Time Example2: 6:45 PM</td>
+           <td>Example2: Delete</td>
        </tr>
    </tbody>
 </table>
