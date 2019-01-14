@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>course list</title>
+<script src=
+"https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<link href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	rel="stylesheet"/>
+<link href=
+"https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+<link href=
+"./courseList.style.client.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-info"> <!--use navbar-expand to make following collapse mobile-only -->
+  <a class="navbar-brand" href="#">
+   Course Manager</a>
+  <button class="navbar-toggler"
+           type="button"
+           data-toggle="collapse"
+           data-target="#MyNavbarNavDropdown">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="MyNavbarNavDropdown"> <!--use id to make dropdown need 2 js libraries -->
+     <ul class="navbar-nav">
+       <li class="nav-item active">
+         <a class="nav-link" href="../index.html">Home</a>
+       </li>
+
+       <li class="nav-item active">
+         <a class="nav-link" href="../login/login.template.client.html">Log in</a>
+       </li>
+
+       <li class="nav-item active">
+         <a class="nav-link" href="../profile/profile.template.client.html">Profile</a>
+       </li>
+       <li class="nav-item active" >
+         <input placeholder="New Course Title" class="form-control">
+       </li>
+       <li class="nav-item active" >
+         <span class="fa-stack btn red" onclick="location.href='#'"> <!-- onclick workds-->
+            <i class="fas fa-circle fa-stack-2x"></i>
+            <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+         </span>
+       </li>
+     </ul>
+  </div>
+
+</nav>
+
+<table class="table">
+   <thead>
+       <tr>
+           <th>Title</th>
+           <th>Owner</th>
+           <th>Last modified Time</th>
+           <th>&nbsp;</th>
+       </tr>
+
+   </thead>
+
+  <tbody>
+       <tr>
+           <td>Title Exmaple: cs 5610 </td>
+           <td>Owner Example: me</td>
+           <td>Last modified Time Example: 6:45 PM</td>
+           <td>Example: Delete</td>
+       </tr>
+   </tbody>
+</table>
+
+</body>
+<span class="fa-stack fa-2x wd-bottom-right btn" onclick="location.href='#'"> 
+  <i class="fas fa-circle fa-stack-2x" ></i>
+  <i class="fas fa-plus fa-stack-1x fa-inverse"></i>
+</span>
+
+</html>
