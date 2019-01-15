@@ -1,22 +1,38 @@
+<!!DOCTYPE html>
 <html>
 <head>
 <title>Course Editor</title>
 <link rel="stylesheet"
   href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+  href="./courseEditor.style.client.css">
+<link href=
+"https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <div class="container-fluid">
     <h1>Course Editor</h1>
     <div class="row">
-      <div class="col-2">
-        <ul class="nav flex-column nav-pills">
-          <a class="nav-link active" href="#">Module 1</a>
-          <a class="nav-link" href="#">Module 2</a>
-          <a class="nav-link" href="#">Module 3</a>
-          <a class="nav-link" href="#">Module 4</a>
+      <div class="col-sm-2">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Module 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Module 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Module 3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Module 4</a>
+          </li>
         </ul>
+      <br>
       </div>
-      <div class="col-10">
+
+      <div class="col-sm-10">
         <ul class="nav nav-tabs">
           <li class="nav-item">
             <a class="nav-link active" href="#">Lesson 1</a>
@@ -28,7 +44,7 @@
             <a class="nav-link" href="#">Lesson 3</a>
           </li>
         </ul>
-        <br />
+        <br>
         <ul class="nav nav-pills">
           <li class="nav-item">
             <a class="nav-link active" href="#">Topic 1</a>
@@ -40,6 +56,46 @@
             <a class="nav-link" href="#">Topic 3</a>
           </li>
         </ul>
+
+        <div class="row" style="margin:5px"> <!--col-xs can not work with float-right, col-sm etc. stack -->
+          <div class="col-10">
+            <button type="button" name="saveBtn" class="float-right btn btn-success">save</button>
+          </div>
+          <div class="col-2" style="padding:0px">
+              <b>Preview</b>
+              <input type="checkbox" style="zoom:2;" name="previewCheckbox">
+          </div>
+        </div>
+
+
+        <div class="border border-primary" style="padding:20px">
+          <div class="row">
+            <h3 class="col-4"> Heading Widget </h3>
+            <i class="col-2 btn fas fa-2x fa-arrow-alt-circle-down" onclick="location.href='#'" name="down"></i>
+            <i class="col-2 btn fas fa-2x fa-arrow-alt-circle-up" onclick="location.href='#'" name="up"></i>
+            <select class="col-2" name="selectWidget">
+              <option value="heading">heading</option>
+              <option value="paragraph">paragraph</option>
+              <option value="list">list</option>
+              <option value="image">image</option>
+            </select>
+            <i class="btn col-2 fas fa-2x fa-trash-alt" onclick="location.href='#'" name="delete"></i>
+          </div>
+          <br>
+          <input class="form-control" placeholder="Heading text">
+          <br>
+          <select class="form-control" name="selectHeadingSize">
+              <option value="heading 1">heading 1</option>
+              <option value="heading 2">heading 2</option>
+              <option value="heading 3">heading 3</option>
+          </select>
+          <br>
+          <input class="form-control" placeholder="Widget Name">
+          <br>
+          <h3>Preview</h3>
+          <h3>Heading text</h3>
+        </div>
+
       </div>
     </div>
   </div>
