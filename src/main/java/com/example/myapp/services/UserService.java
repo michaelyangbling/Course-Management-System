@@ -14,13 +14,11 @@ public class UserService {
 	User bob   = new User(-1, "bob(Example)", "Bob", "Marley","Faculty");
 	User[] users = {alice, bob};
 
-	@CrossOrigin
 	@GetMapping("/api/user")
 	public User[] findAllUser() {
 		return users;
 	}
 
-	@CrossOrigin
 	@GetMapping("/api/user/{userId}")
 	public User findUserById(
 			@PathVariable("userId") Integer id) {
