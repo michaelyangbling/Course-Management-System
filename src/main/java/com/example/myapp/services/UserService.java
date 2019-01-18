@@ -3,8 +3,10 @@ package com.example.myapp.services;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.myapp.model.User;
+
 
 @RestController
 public class UserService {
@@ -12,10 +14,13 @@ public class UserService {
 	User bob   = new User(-1, "bob(Example)", "Bob", "Marley","Faculty");
 	User[] users = {alice, bob};
 
+	@CrossOrigin
 	@GetMapping("/api/user")
 	public User[] findAllUser() {
 		return users;
 	}
+
+	@CrossOrigin
 	@GetMapping("/api/user/{userId}")
 	public User findUserById(
 			@PathVariable("userId") Integer id) {
