@@ -3,9 +3,18 @@ function User(username, password, firstname, lastname) {
     this.password = password;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.role=role
 
     this.setUsername = setUsername;
     this.getUSername=getUSername;
+    this.setPassword = setPassword
+    this.getPassword = getPassword
+    this.setFirstName = setFirstName
+    this.getFirstName = getFirstName
+    this.setLastName = setLastName
+    this.getLastName = getLastName
+    this.setRole=setRole
+    this.getRole=getRole
     
     function setUsername(username){
         this.username=username
@@ -18,7 +27,7 @@ function User(username, password, firstname, lastname) {
     function setPassword(password){
         this.password=password
     }
-    function getPassword(password){
+    function getPassword(){
         return this.password
     }
 
@@ -26,7 +35,7 @@ function User(username, password, firstname, lastname) {
         this.firstName=firstName
     }
 
-    function getFirstName(firstName){
+    function getFirstName(){
         return this.firstName
     }
 
@@ -34,8 +43,16 @@ function User(username, password, firstname, lastname) {
         this.lastName=lastName
     }
     
-    function setLastName(lastName){
+    function getLastName(){
         return this.lastName
+    }
+
+    function setRole(role){
+        this.role=role
+    }
+
+    function getRole(){
+        return this.role
     }
 
 
