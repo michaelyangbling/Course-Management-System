@@ -13,28 +13,25 @@
             .findAllUsers()
             .then(renderUsers);
         //may need some condition to ensure renderUsers completed
-        $createBtn.click(
-            function(){
-                var user = new User($("#usernameFld").val(), $("#passwordFld").val(), $("#firstNameFld").val(), $("#lastNameFld").val(), $("#roleFld").val())
-                
-
-                //delete input fields
-                $("#usernameFld").val("")
-                $("#passwordFld").val("")
-                $("#firstNameFld").val("")
-                $("#lastNameFld").val("")
-                
-                userService.createUser(user, renderUser)
-
-            }
-        )
+        $createBtn.click( createUser())
 
     }
 
     // var url = 'https://example.com/profile';
     // var data = {username: 'example'};
     
+    function createUser(){
+        var user = new User($("#usernameFld").val(), $("#passwordFld").val(), $("#firstNameFld").val(), $("#lastNameFld").val(), $("#roleFld").val())
+                
 
+        //delete input fields
+        $("#usernameFld").val("")
+        $("#passwordFld").val("")
+        $("#firstNameFld").val("")
+        $("#lastNameFld").val("")
+        
+        userService.createUser(user, renderUser) //only renderUser after successfully posting user to server
+    }
 
     function renderUser(user) {
         var clone = $userRow.clone()
