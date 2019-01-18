@@ -23,7 +23,6 @@
                 $("#passwordFld").val("")
                 $("#firstNameFld").val("")
                 $("#lastNameFld").val("")
-                $("#roleFld").val("")
                 
                 userService.createUser(user, renderUser)
 
@@ -40,8 +39,8 @@
     function renderUser(user) {
         var clone = $userRow.clone()
         clone.find(".wbdv-username").html(user.username)
-        clone.find(".wbdv-first-name").html(user.firstname)
-        clone.find(".wbdv-last-name").html(user.lastname)
+        clone.find(".wbdv-first-name").html(user.firstName)
+        clone.find(".wbdv-last-name").html(user.lastName)
         clone.find(".wbdv-role").html(user.role)
         $tbody.append(clone)
         clone[0].id=user.id
@@ -52,8 +51,8 @@
             console.log(users[u])
             var clone = $userRow.clone()
             clone.find(".wbdv-username").html(users[u].username)
-            clone.find(".wbdv-first-name").html(users[u].firstname)
-            clone.find(".wbdv-last-name").html(users[u].lastname)
+            clone.find(".wbdv-first-name").html(users[u].firstName)
+            clone.find(".wbdv-last-name").html(users[u].lastName)
             clone.find(".wbdv-role").html(users[u].role)
             clone[0].id=users[u].id
             $tbody.append(clone)
