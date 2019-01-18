@@ -1,0 +1,6 @@
+lsof -n -i4TCP:8080
+change application.properties and js port locally
+
+As said in docs 
+either set server.port as system property using command line option to 
+jvm --server.port=8090 or add application.properties in /src/main/resources/ with
