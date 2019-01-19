@@ -50,6 +50,7 @@ public class UserService {
 		while(i<users.size()){
 			if (users.get(i).getId().equals(delUser.getId()))
 				users.remove(i);
+			i=i+1;
 		}
    		return delUser; //maybe we only need to return id?
 	}
