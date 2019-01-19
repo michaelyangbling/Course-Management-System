@@ -13,7 +13,7 @@
             .findAllUsers()
             .then(renderUsers);
         //may need some condition to ensure renderUsers completed
-        $createBtn.click( createUser())
+        $createBtn.click( createUser)
 
     }
 
