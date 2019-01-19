@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -39,7 +40,18 @@ public class UserService {
 		count += 1; //sync issue?
 		newUser.setId(count);
 		users.add(newUser);
-   		return newUser;
+   		return newUser; //maybe we only need to return id?
+	}
+
+	@DeleteMapping("/api/user")
+	public User deleteUser(@RequestBody User delUser) {
+		//sync issue?
+		int i=0;
+		while(i<users.size()){
+			if (users.get(i).getId().equals(delUser.getId()))
+				users.remove(i);
+		}
+   		return delUser; //maybe we only need to return id?
 	}
 
 
