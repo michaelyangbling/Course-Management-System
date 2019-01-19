@@ -1,3 +1,4 @@
+//vx
 ( function(){
     var $createBtn
 
@@ -23,7 +24,7 @@
         /*
          Updates the list of users on server response
         */
-        var user = new User($("#usernameFld").val(), $("#passwordFld").val(), $("#firstNameFld").val(), $("#lastNameFld").val(), $("#roleFld").val())
+        var user = new User(-1, $("#usernameFld").val(), $("#passwordFld").val(), $("#firstNameFld").val(), $("#lastNameFld").val(), $("#roleFld").val())
                 
 
         //delete input fields
@@ -39,9 +40,10 @@
         /*
          delete from server and update client-side user list on server response
         */
-       var user = new User(id,"Hidden", "Hidden", "Hidden", 
-       "Hidden")
-       userService.deleteUser(user, function(){row.remove()})
+       //var user = new User(id,"Hidden", "Hidden", "Hidden", 
+       //"Hidden")
+       console.log("problem")
+       userService.deleteUser(id, function(){row.remove()})
 
 
        
@@ -54,22 +56,23 @@
         clone.find(".wbdv-first-name").html(user.firstName)
         clone.find(".wbdv-last-name").html(user.lastName)
         clone.find(".wbdv-role").html(user.role)
-        clone[0].id=user.getId
+        clone[0].id=String(user.id)
         $tbody.append(clone)
-        clone.click( function(){deleteUser(clone, user.id)} ) //delete onclick
+        clone.find(".wbdv-remove").click( function(){deleteUser(clone, user.id)} ) //delete onclick
         }
     
     function renderUsers(users) {
         for(var u=0; u<users.length; u++){
-            console.log(users[u])
             var clone = $userRow.clone()
             clone.find(".wbdv-username").html(users[u].username)
             clone.find(".wbdv-first-name").html(users[u].firstName)
             clone.find(".wbdv-last-name").html(users[u].lastName)
             clone.find(".wbdv-role").html(users[u].role)
-            clone[0].id=users[u].getId
+            clone[0].id=String(users[u].id)
             $tbody.append(clone)
-            clone.click( function(){deleteUser(clone, users[u].id)} ) //delete onclick
+            //console.log(1)
+            //console.log(users[u].id)
+            clone.find(".wbdv-remove").click( function(){deleteUser(clone, users[u].id)} ) //delete onclick
             
 
         }

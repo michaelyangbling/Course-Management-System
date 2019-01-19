@@ -43,16 +43,16 @@ public class UserService {
    		return newUser; //maybe we only need to return id?
 	}
 
-	@DeleteMapping("/api/user")
-	public User deleteUser(@RequestBody User delUser) {
+	@DeleteMapping("/api/user/{id}")
+	public User deleteUser(@PathVariable Integer id) {
 		//sync issue?
 		int i=0;
 		while(i<users.size()){
-			if (users.get(i).getId().equals(delUser.getId()))
+			if (users.get(i).getId().equals(id))
 				users.remove(i);
 			i=i+1;
 		}
-   		return delUser; //maybe we only need to return id?
+   		return null; //maybe we only need to return id?
 	}
 
 

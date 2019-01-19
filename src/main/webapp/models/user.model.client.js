@@ -1,5 +1,5 @@
-function User(username, password, firstName, lastName, role) {
-    this.id = -1 //dummy id constructor on  client side
+function User(id,username, password, firstName, lastName, role) {
+    this.id = id //dummy id constructor on  client side
     this.username = username;
     this.password = password;
     this.firstName = firstName;
