@@ -42,15 +42,23 @@
         */
        //var user = new User(id,"Hidden", "Hidden", "Hidden", 
        //"Hidden")
+       function rowRemoveMaker(){
+        return ( function(){row.remove()} )
+    }
        console.log("problem")
-       userService.deleteUser(id, function(){row.remove()})
+       userService.deleteUser(id, rowRemoveMaker())
 
 
        
 
     }
 
+
+    
     function renderUser(user) {
+        function deleteUserMaker(){
+            return ( function(){deleteUser(clone, user.id)} )
+        }
         var clone = $userRow.clone()
         clone.find(".wbdv-username").html(user.username)
         clone.find(".wbdv-first-name").html(user.firstName)
@@ -58,11 +66,14 @@
         clone.find(".wbdv-role").html(user.role)
         clone[0].id=String(user.id)
         $tbody.append(clone)
-        clone.find(".wbdv-remove").click( function(){deleteUser(clone, user.id)} ) //delete onclick
+        clone.find(".wbdv-remove").click( deleteUserMaker() ) //delete onclick
         }
     
     function renderUsers(users) {
-        for(var u=0; u<users.length; u++){
+        function deleteUserMaker2(){
+            return ( function(){deleteUser(clone, (users[u]).id)} )
+        }
+        for(var u=0; u<users.length; u++){   
             var clone = $userRow.clone()
             clone.find(".wbdv-username").html(users[u].username)
             clone.find(".wbdv-first-name").html(users[u].firstName)
@@ -72,7 +83,7 @@
             $tbody.append(clone)
             //console.log(1)
             //console.log(users[u].id)
-            clone.find(".wbdv-remove").click( function(){deleteUser(clone, users[u].id)} ) //delete onclick
+            clone.find(".wbdv-remove").click( deleteUserMaker2()) //delete onclick
             
 
         }
