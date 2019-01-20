@@ -42,11 +42,12 @@
         */
        //var user = new User(id,"Hidden", "Hidden", "Hidden", 
        //"Hidden")
-       function rowRemoveMaker(){
-        return ( function(){row.remove()} )
-    }
-       console.log("problem")
-       userService.deleteUser(id, rowRemoveMaker())
+       
+       //console.log("problem")
+       userService.deleteUser(id, (function(){
+                                    return ( function(){row.remove()
+                                             alert("delete success!")} )
+                                    } )())
 
 
        
@@ -66,13 +67,12 @@
         clone.find(".wbdv-role").html(user.role)
         clone[0].id=String(user.id)
         $tbody.append(clone)
-        clone.find(".wbdv-remove").click( deleteUserMaker() ) //delete onclick
+        clone.find(".wbdv-remove").click( deleteUserMaker() ) //delete onclick, "pas"s object autometically?
+        alert("create success!")
         }
     
     function renderUsers(users) {
-        function deleteUserMaker2(){
-            return ( function(){deleteUser(clone, (users[u]).id)} )
-        }
+
         for(var u=0; u<users.length; u++){   
             var clone = $userRow.clone()
             clone.find(".wbdv-username").html(users[u].username)
@@ -83,7 +83,12 @@
             $tbody.append(clone)
             //console.log(1)
             //console.log(users[u].id)
-            clone.find(".wbdv-remove").click( deleteUserMaker2()) //delete onclick
+            var user=users[u]
+            clone.find(".wbdv-remove").click( 
+                ( function(){
+                    return ( function(){deleteUser(clone, user.id)} )  //users[u].id is not OK, maybe since user 
+                    }  ) () 
+            )//delete onclick
             
 
         }
