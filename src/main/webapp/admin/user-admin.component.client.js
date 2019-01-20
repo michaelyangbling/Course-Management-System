@@ -1,4 +1,5 @@
 //vx
+//if cannot delete, just refresh
 ( function(){
     var $createBtn
 
@@ -46,8 +47,8 @@
        //console.log("problem")
        userService.deleteUser(id, (function(){
                                     return ( function(){row.remove()
-                                             alert("delete success!")} )
-                                    } )())
+                                             alert("delete success!( if not deleted, refresh the page the delete again)")} )
+                                    } )())//alert: before sucess? after promise?blabla..should after success..
 
 
        
