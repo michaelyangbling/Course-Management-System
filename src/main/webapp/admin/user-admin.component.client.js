@@ -46,8 +46,8 @@
        
        //console.log("problem")
        userService.deleteUser(id, (function(){
-                                    return ( function(){row.remove()
-                                             alert("delete success!( if not deleted, refresh the page the delete again)")} )
+                                    return ( function(x){row.remove()
+                                             alert("delete success!")} )
                                     } )())//alert: before sucess? after promise?blabla..should after success..
 
 
@@ -58,17 +58,20 @@
 
     
     function renderUser(user) {
-        function deleteUserMaker(){
-            return ( function(){deleteUser(clone, user.id)} )
-        }
+        
         var clone = $userRow.clone()
         clone.find(".wbdv-username").html(user.username)
         clone.find(".wbdv-first-name").html(user.firstName)
         clone.find(".wbdv-last-name").html(user.lastName)
         clone.find(".wbdv-role").html(user.role)
         clone[0].id=String(user.id)
+        clone.find(".wbdv-remove").click( (function (){
+
+            return ( function(){console.log(clone);deleteUser(clone, user.id)} ) 
+            //clone variable was same, so object change with variable, but clone var is local to function here
+            //so clone only refers to one object on its lifetime
+        } )() ) //delete onclick, "pas"s object autometically?
         $tbody.append(clone)
-        clone.find(".wbdv-remove").click( deleteUserMaker() ) //delete onclick, "pas"s object autometically?
         alert("create success!")
         }
     
@@ -81,17 +84,15 @@
             clone.find(".wbdv-last-name").html(users[u].lastName)
             clone.find(".wbdv-role").html(users[u].role)
             clone[0].id=String(users[u].id)
-            $tbody.append(clone)
             //console.log(1)
-            //console.log(users[u].id)
             var user=users[u]
             clone.find(".wbdv-remove").click( 
-                ( function(){
-                    return ( function(){deleteUser(clone, user.id)} )  //users[u].id is not OK, maybe since user 
-                    }  ) () 
+                ( function(clone, id){
+                    
+                    return ( function(){deleteUser(clone, id)} )  //why bug showed previously: users[u].id was OK, but variable was same, so object change with variable
+                    }  ) (clone, users[u].id) 
             )//delete onclick
-            
-
+            $tbody.append(clone)
         }
     }
 

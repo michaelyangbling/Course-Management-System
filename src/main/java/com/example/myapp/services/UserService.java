@@ -49,7 +49,7 @@ public class UserService {
 		int i=0;
 		while(i<users.size()){
 			if (users.get(i).getId().equals(id))
-				users.remove(i);
+				users.remove(i); //if user not exist, return some other info to let client refresh page?
 			i=i+1;
 		}
    		return null; //maybe we only need to return id?
