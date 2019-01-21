@@ -1,5 +1,7 @@
 //vx
 //if cannot delete, just refresh
+//varibale lives out of scope with closure function??
+//https://stackoverflow.com/questions/750486/javascript-closure-inside-loops-simple-practical-example
 ( function(){
     var $createBtn
 
@@ -67,7 +69,7 @@
         clone[0].id=String(user.id)
         clone.find(".wbdv-remove").click( (function (){
 
-            return ( function(){console.log(clone);deleteUser(clone, user.id)} ) 
+            return ( function(){deleteUser(clone, user.id)} ) 
             //clone variable was same, so object change with variable, but clone var is local to function here
             //so clone only refers to one object on its lifetime
         } )() ) //delete onclick, "pas"s object autometically?
