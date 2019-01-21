@@ -1,5 +1,14 @@
+master branch is for development
+show branch is a demo, where user-admin demo supports deleting and creating users Using Java spring REST web services.
+shown on https://zhongheng-yang-web-dev-app.herokuapp.com
+
+
 lsof -n -i4TCP:8080
+then kill -9 pid to have local port to test
 change application.properties and js port locally
+
+mvn clean install then java run
+or use mvn spring boot to run locally
 
 As said in docs 
 either set server.port as system property using command line option to 
