@@ -4,7 +4,7 @@ function AdminUserServiceClient() {
     this.deleteUser = deleteUser
     this.url="https://cs5610-zhongheng-yang-oxy-b.herokuapp.com/api/user"
     //this.url="http://localhost:8052/api/user" 
-    //v1
+    //v1.2
     //always change url to server url
     //seems url&rest type both work in matching
     function findAllUsers(){
