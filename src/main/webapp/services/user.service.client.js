@@ -3,8 +3,8 @@ function AdminUserServiceClient() {
     this.createUser = createUser
     this.deleteUser = deleteUser
     this.updateUser = updateUser
-    //this.url="https://cs5610-zhongheng-yang-oxy-b.herokuapp.com/api/user"
-    this.url="http://localhost:8052/api/user" 
+    this.url="https://cs5610-zhongheng-yang-oxy-b.herokuapp.com/api/user"
+    //this.url="http://localhost:8052/api/user" 
     //v1
     //always change url to server url
     //seems url&rest type both work in matching
