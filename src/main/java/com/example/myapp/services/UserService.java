@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.myapp.model.User;
@@ -54,6 +54,28 @@ public class UserService {
 		}
    		return null; //maybe we only need to return id?
 	}
+
+	@PutMapping("/api/user") //java, js, json OK
+	public User updateUser(@RequestBody User updatedUser) {
+		//sync issue?
+		int i=0;
+		User user=new User();
+		while(i<users.size()){
+			if (users.get(i).getId().equals(updatedUser.getId()) ){
+				user=users.get(i); //if user not exist, return some other info to let client refresh page?
+				user.setPassword( updatedUser.getPassword() );
+				user.setUsername( updatedUser.getUsername() );
+				user.setFirstName( updatedUser.getFirstName() );
+				user.setLastName( updatedUser.getLastName() );
+				user.setRole( updatedUser.getRole() );
+			}
+			i=i+1;
+			
+		}
+   		return user; //maybe we only need to return id?
+	}
+
+
 
 
 //	}
