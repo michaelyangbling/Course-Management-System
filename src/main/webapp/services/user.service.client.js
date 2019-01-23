@@ -1,4 +1,4 @@
-function AdminUserServiceClient() {
+function AdminUserServiceClient() {//merge try
     this.findAllUsers = findAllUsers
     this.createUser = createUser
     this.deleteUser = deleteUser
