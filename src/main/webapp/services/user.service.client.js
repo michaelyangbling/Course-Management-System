@@ -3,9 +3,10 @@ function AdminUserServiceClient() {
     this.createUser = createUser
     this.deleteUser = deleteUser
     this.updateUser = updateUser
-    this.url="https://cs5610-zhongheng-yang-oxy-b.herokuapp.com/api/user"
+    this.url="https://zhongheng-yang-web-dev-app.herokuapp.com/api/user"
+    
     //this.url="http://localhost:8052/api/user" 
-    //v1
+    //v1.99
     //always change url to server url
     //seems url&rest type both work in matching
     function findAllUsers(){//https://developers.google.com/web/ilt/pwa/working-with-the-fetch-api
